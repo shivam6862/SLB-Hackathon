@@ -1,11 +1,12 @@
+
 from chunk_headings import find_heading_indices, create_chunks
 from change_language import enhanced_extraction, language_translator
+import asyncio
 
-def first_translate_notice(notice:str):
+async def first_translate_notice(notice:str):
     print('Inside first_translate_notice')
-    headings_with_indices, lang = find_heading_indices(notice)
-    chunks :dict[str, str] = create_chunks(headings_with_indices, notice, lang)
-    
+    headings_with_indices, lang = await find_heading_indices(notice)
+    chunks :dict[str, str] = asyncio.run(create_chunks(headings_with_indices, notice, lang))
 
     # first of all translating text to english
     final_dict = {}
@@ -69,6 +70,38 @@ async def produce_translations(notice:str)->dict:
     
     return translations
 
+
+text = '''
+
+Warning Statement: Expect disruption, ensure access to reliable
+communication methods amid reported cellular network outage
+Overview:
+Level: Advisory
+Location: United States
+Category: Telephone outage, Infrastructure outage
+Last Updated: 22 Feb 2024 13:09 (GMT)
+Expect disruption and ensure access to reliable communication methods in the coming hours amid widespread
+reports of cellular network outages on 22 February. Several major carriers have reportedly been impacted, with
+over 50,000 individuals self-reporting issues with service nationwide. Disruption to internet services has also
+been reported by some impacted individuals. The authorities in some affected areas have reported that the
+outage has impacted individuals contacting the emergency services, including by calling 911. They have urged
+individuals with medical or life-threatening emergencies to utilize alternate methods of contact such as social
+media. Monitor developments in the coming hours
+Advice
+ Expect disruption to cellular and internet services in the coming hours during the ongoing
+outage. Ensure access to other reliable methods of communication until it is resolved.
+ Maintain a list of emergency contacts, both electronic and on paper.
+
+'''
+print('^^^^^^^^^^^^^')
+# async def f ():
+#     res = await produce_translations(text)
+#     return res
+
+
+
+asyncio.run(produce_translations(text))
+print('********************************', 'Shree Ram')
 
     
                 

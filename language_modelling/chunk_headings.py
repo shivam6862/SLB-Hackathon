@@ -1,25 +1,17 @@
 from utils import llm
 from collections import OrderedDict
+import asyncio
 
-
-def count_leading_newlines(string:str):
+async def count_leading_newlines(string:str):
   return len(string) - len(string.lstrip('\n'))
 #_______________________________________________________________________________________________________________________
 def find_language(text:str)->str:
     template = '''
-        You are provided with a text below. You need to find the language in which text is written.
-        
+        You are provided with a text below. 
         TEXT : {text}
 
-        It can be in either of the following languages: 
-        - English
-        - French
-        - Hindi
-        - Tamil
-
-        Return Instructions : 
-        - return the name of the language in which the text is written.
-        - Don't return anything else.
+        You need to check whether the above text is in Hindi...
+        If so, return 1, else return 0
     '''
     response = llm.generate_response(template.format(text = text))
     print('Inside find_language' , response)
@@ -27,8 +19,9 @@ def find_language(text:str)->str:
     print('find_lang ans : ' , ans)
     return ans[0]
 #_______________________________________________________________________________________________________________________
-def find_heading_indices(text:str):
-    curr_idx = count_leading_newlines(text)
+async def find_heading_indices(text:str):
+    print('Inside find_heading_indices')
+    curr_idx = await count_leading_newlines(text)
     headings_with_indices = OrderedDict()
     lines = text.split('\n')
     start = 0
@@ -45,7 +38,7 @@ def find_heading_indices(text:str):
                 headings_with_indices[heading] = (start, start+ len(heading)) 
                 done_processing = True    
         except:
-            print(line)  
+            pass
 
         if not done_processing and len(words) <= 3:
             start = curr_idx
@@ -59,7 +52,8 @@ def find_heading_indices(text:str):
             max_len = len(line)
             useful_line = line
 
-    lang = find_language(useful_line)
+    # lang = find_language(useful_line)
+    lang = 'English'
     sorted_items = sorted(headings_with_indices.items(), key=lambda x: x[0])   # sorting based on start index of headings
     print('sorted_items : ' ,sorted_items)
     return sorted_items, lang
@@ -100,7 +94,7 @@ async def create_chunks(headings_with_indices:OrderedDict, text, lang):
     idx = -1
     for i in range(len(li)):
         possible_heading = li[i][0]
-        x = await is_heading(possible_heading, lang)
+        x = asyncio.run(is_heading(possible_heading, lang))
         if x is not None:
             
             if idx!=-1:
