@@ -16,11 +16,9 @@ class LLM:
         # print(input_ids)
         # output = self.model.generate(input_ids, max_length=max_length, temperature=temperature)
         # return self.tokenizer.decode(output[0], skip_special_tokens=True)
-
         if self.model is not None:  # If model loading was successful
             # Generate text using the loaded model (replace max_length with desired output length)
             with torch.no_grad():
-                
                 outputs = self.model.generate(**input_ids, max_length=200)[0]
                 generated_text = self.tokenizer.decode(outputs,  skip_special_tokens=True)
                 # print('\n\n\n\n', generated_text)
@@ -75,9 +73,18 @@ class LLM:
 
 
 
-llm = LLM()
+# llm = LLM()
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv()) # read local .env file
+import google.generativeai as genai
+import os
+genai.configure(api_key=os.environ['GOOGLE_API_KEY'])
+          
+llm = genai.GenerativeModel('gemini-pro')
 
-
+def generate_response(text):
+    response = llm.generate_content(text)
+    print(response.text)
 
 
 # # Craft a short input sequence to avoid memory issues

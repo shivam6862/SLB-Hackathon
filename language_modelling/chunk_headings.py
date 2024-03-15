@@ -1,8 +1,7 @@
-from utils import llm
+from utils import generate_response
 from collections import OrderedDict
-import asyncio
 
-async def count_leading_newlines(string:str):
+def count_leading_newlines(string:str):
   return len(string) - len(string.lstrip('\n'))
 #_______________________________________________________________________________________________________________________
 def find_language(text:str)->str:
@@ -13,15 +12,15 @@ def find_language(text:str)->str:
         You need to check whether the above text is in Hindi...
         If so, return 1, else return 0
     '''
-    response = llm.generate_response(template.format(text = text))
+    response = generate_response(template.format(text = text))
     print('Inside find_language' , response)
     ans = [lang for lang in ['English', 'French', 'Hindi', 'Tamil'] if lang in response]
     print('find_lang ans : ' , ans)
     return ans[0]
 #_______________________________________________________________________________________________________________________
-async def find_heading_indices(text:str):
+def find_heading_indices(text:str):
     print('Inside find_heading_indices')
-    curr_idx = await count_leading_newlines(text)
+    curr_idx = count_leading_newlines(text)
     headings_with_indices = OrderedDict()
     lines = text.split('\n')
     start = 0
@@ -54,47 +53,68 @@ async def find_heading_indices(text:str):
 
     # lang = find_language(useful_line)
     lang = 'English'
-    sorted_items = sorted(headings_with_indices.items(), key=lambda x: x[0])   # sorting based on start index of headings
+    sorted_items = sorted(headings_with_indices.items(), key=lambda x: x[1])   # sorting based on start index of headings
     print('sorted_items : ' ,sorted_items)
     return sorted_items, lang
 
 #_______________________________________________________________________________________________________________________
-async def is_heading(word , lang)->str:
+def is_heading(word :str, lang)->str:
     imp_words = {"1" : "Warning Statement",
         "2" : "Overview" ,
         "3" : "Advice", 
         "4" : "Emergency Contact Numbers" ,
         "5" : "Assistance",
         }
-    template = '''
+    for key in imp_words.keys():
+        if imp_words[key].lower().strip() in word.lower().strip():
+            return imp_words[key]
+        
+#     template1= '''
 
-        Below is a dictionary of words in English with keys as index and values as words.
-        {imp_words}
+#         You will be provided with a text written in {lang} language. 
+#         {lang} : {text}
 
-        - return the index of word in English language which is closest in meaning to the words "{word}" in {lang} language. 
-        - If no word in English relates to the word "{word}" in {lang} language, return -1.
-'''
-    prompt = template.format(imp_words = imp_words, word = word, lang = lang)
-    response = await llm.generate_response(prompt)
-    print('Inside map_headings_to_english' , response)
+#         You need to translate this text to English.
+#         English : 
+        
+# '''
+#     template2 = '''
 
-    if "-1" in response:
-        return None
+#     You are provided with a text : {text}
+
+#     You are also provided with a set of other texts with their indices.
+#     {imp_words}
+
+#     If the provided text is not similar to 
+
+
+# '''
+
+#     prompt = template1.format(imp_words = imp_words, word = word, lang = lang)
+#     response =  llm.generate_response(prompt)
+
+
+#     print('Inside is_heading' , response)
+
+#     if "-1" in response:
+#         return None
     
-    ans =  [imp_words(key) for key in imp_words.keys() if key in response]
-    print('ans : ' , ans)
-    return ans[0]
+#     ans =  [imp_words(key) for key in imp_words.keys() if key in response]
+#     print('is_heading   ans : ' , ans)
+#     return ans[0]
+    
 
 #_______________________________________________________________________________________________________________________
 
     
-async def create_chunks(headings_with_indices:OrderedDict, text, lang):
+def create_chunks(headings_with_indices:OrderedDict, text, lang):
     chunks = {}
-    li = list(headings_with_indices.items())
+    li = headings_with_indices
     idx = -1
     for i in range(len(li)):
         possible_heading = li[i][0]
-        x = asyncio.run(is_heading(possible_heading, lang))
+
+        x = is_heading(possible_heading, lang)
         if x is not None:
             
             if idx!=-1:
@@ -105,7 +125,7 @@ async def create_chunks(headings_with_indices:OrderedDict, text, lang):
             else : 
                 idx = i
 
-    chunks[x] = text[li[idx][1][1]+1 :]
+    chunks[li[idx][0]] = text[li[idx][1][1]+1 :]
     return chunks
 
     

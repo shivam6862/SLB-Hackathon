@@ -20,17 +20,15 @@ def enhanced_extraction(overview_text:str):
 
 #_______________________________________________________________________________________________________________________
 
-async def language_translator(text:str, base_lang, target_lang):
+def language_translator(text:str, base_lang, target_lang):
+    
+    if base_lang == target_lang:
+        return text
     template = '''
-        Your job is of translating the below text from {base_lang} to {target_lang} language.
-
-        TEXT in {base_lang} : {text}
-
-        Return Instructions :
-        - return the translated text in {target_lang} language.
+        Translate to {target_lang} : {text} 
     '''
 
-    response = await llm.generate_response(template.format(base_lang = base_lang, target_lang = target_lang, text = text))
+    response = llm.generate_response(template.format(base_lang = base_lang, target_lang = target_lang, text = text))
     print('Inside language_translator' , response)
     return response.strip()
 
