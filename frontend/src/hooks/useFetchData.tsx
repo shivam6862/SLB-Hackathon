@@ -8,6 +8,7 @@ const useFetchData = () => {
   const handleSendPrompt = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!prompt) return;
+    var data = [];
     try {
       const res = await fetch("http://localhost:8000/api/slb/chat/", {
         method: "POST",
@@ -16,9 +17,10 @@ const useFetchData = () => {
         },
         body: JSON.stringify({ message: prompt }),
       });
-      const data = await res.json();
+      data = await res.json();
+      console.log(data);
       if (!data) return;
-      setResponse(dummyData.data);
+      setResponse(data.message);
       setPrompt("");
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -26,14 +28,15 @@ const useFetchData = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/getPdf/test", {
+      console.log("Fetching PDF", data.message);
+      const response_pdf = await fetch("http://localhost:8080/getPdf/test", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(dummyData),
+        body: JSON.stringify({ data: data.message }),
       });
-      console.log(response);
+      console.log(response_pdf);
       const pdf = await fetch("http://localhost:8080/test.pdf");
       const pdfBlob = await pdf.blob();
       const reader = new FileReader();

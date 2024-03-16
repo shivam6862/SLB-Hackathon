@@ -1,49 +1,54 @@
 {
   "data": [
     {
-      "language": "english",
-      "heading": "Warning Statement: Expect disruption, ensure access to reliable communication methods amid reported cellular network outage",
-      "overview": {
+      "about": [
+        "Advice @@  Expect disruption to cellular and internet services in the coming hours during the ongoing\noutage. Ensure access to other reliable methods of communication until it is resolved.\n Maintain a list of emergency contacts, both electronic and on paper."
+      ],
+      "heading": "Warning Statement: @@ Expect disruption, ensure access to reliable\ncommunication methods amid reported cellular network outage\n",
+      "overview:": {
         "level": "Advisory",
         "location": "United States",
         "category": "Telephone outage, Infrastructure outage",
-        "description": "Expect disruption and ensure access to reliable communication methods in the coming hours amid widespread reports of cellular network outages on 22 February. Several major carriers have reportedly been impacted, with  over 50,000 individuals self-reporting issues with service nationwide. Disruption to internet services has also  been reported by some impacted individuals. The authorities in some affected areas have reported that the  outage has impacted individuals contacting the emergency services, including by calling 911. They have urged  individuals with medical or life-threatening emergencies to utilize alternate methods of contact such as social  media. Monitor developments in the coming hours"
+        "last updated": "22 Feb 2024 13",
+        "description": "\nExpect disruption and ensure access to reliable communication methods in the coming hours amid widespread\nreports of cellular network outages on 22 February. Several major carriers have reportedly been impacted, with\nover 50,000 individuals self-reporting issues with service nationwide. Disruption to internet services has also\nbeen reported by some impacted individuals. The authorities in some affected areas have reported that the\noutage has impacted individuals contacting the emergency services, including by calling 911. They have urged\nindividuals with medical or life-threatening emergencies to utilize alternate methods of contact such as social\nmedia. Monitor developments in the coming hours\n"
       },
-      "about": [
-        "Expect disruption to cellular and internet services in the coming hours during the ongoing outage. Ensure access to other reliable methods of communication until it is resolved.",
-        "Maintain a list of emergency contacts, both electronic and on paper."
-      ],
-      "contact_numbers": ["12345678", "906065"]
+      "language": "English"
     },
     {
-      "language": "spanish",
-      "heading": "Declaración de advertencia: espere interrupciones, garantice el acceso a métodos de comunicación confiables en medio de una interrupción de la red celular informada",
-      "overview": {
-        "level": "Consultivo",
-        "location": "Estados Unidos",
-        "category": "Corte telefónico, Corte de infraestructura",
-        "description": "Espere interrupciones y garantice el acceso a métodos de comunicación confiables en las próximas horas en medio de una situación generalizada. informes de cortes de la red celular el 22 de febrero. Según los informes, varias compañías importantes se han visto afectadas, Más de 50.000 personas informan por sí mismas problemas con el servicio en todo el país. La interrupción de los servicios de Internet también ha algunas personas afectadas han informado de ello. Las autoridades de algunas zonas afectadas han informado que el El apagón ha afectado a las personas que se comunican con los servicios de emergencia, incluso llamando al 911. Han instado personas con emergencias médicas o potencialmente mortales a utilizar métodos alternativos de contacto, como las redes sociales. medios de comunicación. Seguimiento de la evolución en las próximas horas"
+      "about": "à propos @@ ['Conseils @@ \\uf0b7 Attendez-vous à des perturbations des services cellulaires et Internet dans les prochaines heures pendant la\\npanne en cours. Assurez l'accès à d'autres méthodes de communication fiables en attendant sa résolution.\\n\\uf0b7 Tenez à jour une liste de contacts d'urgence, à la fois électronique et sur papier.']",
+      "heading": "titre @@ Mise en garde : @@ Prévoyez des perturbations, assurez-vous d'avoir accès à des méthodes de communication fiables compte tenu des coupures du réseau cellulaire signalées",
+      "overviewaperçu :": {
+        "level": "niveau @@ Avis",
+        "location": "localisation @@ États Unis",
+        "category": "catégorie @@ Coupure téléphonique, Panne d'infrastructure",
+        "last updated": "dernière màj @@ 22 Fév 2024 13",
+        "description": "description @@ Attendez-vous à une perturbation et assurez-vous d'avoir accès à des méthodes de communication fiables\ndans les heures à venir au vu des signalements répandus de pannes du réseau cellulaire le 22 février. Plusieurs\nprincipaux opérateurs auraient été touchés, et plus de 50 000 personnes ont signalé des problèmes avec le\nservice à l'échelle nationale. Des perturbations dans les services internet ont également été signalées par\ncertains individus touchés. Les autorités de certaines zones touchées ont signalé que la panne avait eu un\nimpact sur les personnes contactant les services d'urgence, y compris en appelant le 911. Elles ont exhorté\nles personnes ayant des urgences médicales ou vitales à utiliser des méthodes de contact alternatives\ncomme les réseaux sociaux. Surveillez l'évolution de la situation dans les heures à venir"
       },
-      "about": [
-        "Espere interrupciones en los servicios celulares e Internet en las próximas horas durante el actual corte. Garantizar el acceso a otros métodos confiables de comunicación hasta que se resuelva.",
-        "Mantenga una lista de contactos de emergencia, tanto electrónica como en papel."
-      ],
-      "contact_numbers": ["12345678", "906065"]
+      "language": "French"
     },
     {
-      "language": "French",
-      "heading": "Déclaration d'avertissement : attendez-vous à des perturbations, assurez l'accès à des méthodes de communication fiables en cas de panne de réseau cellulaire signalée",
-      "overview": {
-        "level": "Consultatif",
-        "location": "États-Unis",
-        "category": "Panne téléphonique, Panne infrastructure",
-        "description": "Attendez-vous à des perturbations et garantissez l’accès à des méthodes de communication fiables dans les heures à venir, au milieu de nombreuses informations faisant état de pannes de réseau cellulaire le 22 février. Plusieurs grands transporteurs auraient été touchés, avec plus de 50 000 personnes signalant elles-mêmes des problèmes de service dans tout le pays. Des perturbations des services Internet ont également été signalées par certaines personnes concernées. Les autorités de certaines zones touchées ont signalé que la panne a eu un impact sur les personnes contactant les services d'urgence, notamment en appelant le 911. Elles ont exhorté les personnes confrontées à des urgences médicales ou mettant leur vie en danger à utiliser d'autres méthodes de contact telles que les réseaux sociaux. Surveiller les évolutions dans les prochaines heures"
+      "about": "के बारे में @@ [सलाह@@\\uf0b7 मौजूदा \\nब्लैकआउट के दौरान आगामी घंटों में सेलुलर और इंटरनेट सेवाओं में व्यवधान की अपेक्षा करें। इसे हल किए जाने तक संचार के लिए अन्य विश्वसनीय माध्यमों तक पहुंच सुनिश्चित करें.\\n\\uf0b7 इलेक्ट्रॉनिक और कागज पर आपातकालीन संपर्कों की सूची बनाए रखें।]",
+      "heading": "शीर्षक @@ चेतावनी विवरण: @@ व्यवधान की आशा करें, रिपोर्ट के अनुसार सेलुलर नेटवर्क के बंद होने के दौरान विश्वसनीय संचार माध्यम तक पहुँच सुनिश्चित करें",
+      "overviewअवलोकन:": {
+        "level": "स्तर @@ सलाहकार",
+        "location": "स्थान @@ संयुक्त राज्य अमेरिका",
+        "category": "श्रेणी @@ टेलीफोन आउटेज, इन्फ्रास्ट्रक्चर आउटेज",
+        "last updated": "अंतिम बार अद्यतन @@ 22 फरवरी 2024 13",
+        "description": "विवरण @@ 22 फ़रवरी को सेल्युलर नेटवर्क में आई व्यापक गड़बड़ियों के चलते यक़ीनन बाधा की आशंका करें और कुछ घंटों के लिए विश्वसनीय संवाद के तरीकों का इस्तेमाल करने को सुनिश्चित करें। कई प्रमुख नेटवर्क प्रभावित हुए हैं, जिसके कारण 50,000 से अधिक व्यक्तियों ने पूरी दुनिया में सर्विस से जुड़ी समस्याओं के बारे में खुद ही रिपोर्ट की है। कुछ प्रभावित व्यक्तियों द्वारा इंटरनेट सर्विस में बाधा आने की शिकायत की गई है। कुछ प्रभावित इलाकों में प्रशासन ने यह बताया है कि 911 नंबर पर फ़ोन करने सहित इमरजेंसी सेवाओं से संपर्क करने वालों पर यह बाधा काम कर रही है। उन्होंने मेडिकल या जानलेवा इमरजेंसी वाले व्यक्तियों से आग्रह किया है कि वे सोशल मीडिया जैसे संपर्क के वैकल्पिक तरीकों का इस्तेमाल करें। कुछ घंटों के लिए होने वाले घटनाक्रमों पर नज़र बनाए रखें।"
       },
-      "about": [
-        "Attendez-vous à des perturbations des services cellulaires et Internet dans les heures à venir pendant la pandémie en cours. panne. Garantissez l’accès à d’autres méthodes de communication fiables jusqu’à ce que le problème soit résolu.",
-        "Tenir à jour une liste de contacts d’urgence, à la fois électronique et papier."
-      ],
-      "contact_numbers": ["12345678", "906065"]
+      "language": "Hindi"
+    },
+    {
+      "about": "über @@ ['Rat @@ \\uf0b7 Rechnen Sie mit Beeinträchtigungen bei Mobilfunk- und Internetdiensten in den kommenden Stunden während des andauernden\\nAusfalls. Stellen Sie den Zugriff auf andere zuverlässige Kommunikationswege sicher, bis das Problem behoben wurde.\\n\\uf0b7 Führen Sie eine Liste mit Notfallkontakten sowohl in elektronischer Form als auch in Papierform.']",
+      "heading": "Überschrift @@ Warnmeldung: @@ Mit Beeinträchtigungen ist zu rechnen, stellen Sie den Zugang zu verlässlichen Kommunikationsmitteln bei einem gemeldeten Mobilfunknetz-Ausfall sicher",
+      "overviewÜberblick:": {
+        "level": "Ebene @@ Anmerkung",
+        "location": "Standort @@ Vereinigte Staaten",
+        "category": "Kategorie @@ Telefonstörungen, Infrastrukturausfälle",
+        "last updated": "Zuletzt aktualisiert @@ 22. Febr. 2024 13",
+        "description": "Beschreibung @@ Erwarten Sie Störungen und stellen Sie sicher, dass Sie in den nächsten Stunden Zugang zu verlässlichen Kommunikationsmethoden haben, da am 22. Februar überall über Mobilfunkausfälle berichtet wird. Berichten zufolge sind mehrere große Anbieter betroffen, und über 50.000 Personen haben landesweit Probleme mit der Dienstleistung gemeldet. Einige der betroffenen Personen berichteten auch über Störungen bei Internetdiensten. Die Behörden in einigen betroffenen Gebieten haben berichtet, dass der Ausfall Auswirkungen auf die Kontaktaufnahme mit dem Notdienst hatte, darunter auch über den Notruf 911. Sie forderten Personen mit medizinischen oder lebensbedrohlichen Notfällen dazu auf, alternative Kontaktmethoden wie Social Media zu nutzen. Verfolgen Sie die Entwicklung in den nächsten Stunden."
+      },
+      "language": "German"
     }
   ]
 }

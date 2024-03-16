@@ -7,6 +7,8 @@ module.exports = getResumeRoutes = {
     try {
       const { pdfid } = req.params;
       const pdf = req.body.data;
+      console.log("pdfid", pdfid);
+      console.log("pdf", pdf);
       const response = await getPdf(pdfid, pdf);
       return res.status(200).send({
         message: "Pdf fetched successfully!",
