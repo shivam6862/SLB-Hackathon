@@ -36,6 +36,13 @@ This document outlines the workflow for translating text from a given language t
 
 ![WorkFlow](/workflow.png)
 
+## Frontend
+
+![1](/image/1.png)
+![2](/image/2.png)
+![3](/image/3.png)
+![4](/image/4.png)
+
 ## Getting Started
 
 1. Clone the repository:
