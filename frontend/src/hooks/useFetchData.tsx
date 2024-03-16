@@ -4,21 +4,26 @@ import dummyData from "./dummy.json";
 const useFetchData = () => {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState<resData[]>([]);
-  const [pdfBase64, setPdfBase64] = useState("");
+  const [pdfBase64, setPdfBase64] = useState<any>("");
   const handleSendPrompt = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!prompt) return;
-    const res = await fetch("http://localhost:8000/api/slb/chat/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ message: prompt }),
-    });
-    const data = await res.json();
-    if (!data) return;
-    setResponse(dummyData.data);
-    setPrompt("");
+    try {
+      const res = await fetch("http://localhost:8000/api/slb/chat/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message: prompt }),
+      });
+      const data = await res.json();
+      if (!data) return;
+      setResponse(dummyData.data);
+      setPrompt("");
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      return;
+    }
 
     try {
       const response = await fetch("http://localhost:8080/getPdf/test", {

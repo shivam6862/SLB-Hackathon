@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useContext } from "react";
 import classes from "@/styles/notification/notification.module.css";
-import NotificationContext from "@/contexts/Notification-context";
+import NotificationContext from "@/contexts/NotificationContext";
 import { RxCross1 } from "react-icons/rx";
 import { ReactElement } from "react";
 

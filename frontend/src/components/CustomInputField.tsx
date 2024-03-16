@@ -10,10 +10,13 @@ type CustomInputFieldProps = {
   handleChanges: (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>,
+      | React.ChangeEvent<HTMLTextAreaElement>
+      | any
   ) => void;
 
   isInput: boolean;
+  onBlur?: () => void;
+  error?: string;
 };
 
 const CustomInputField: React.FC<CustomInputFieldProps> = ({
