@@ -54,8 +54,12 @@ export default function Home() {
             width="100%"
             height="1000px"
           />
-          <div>
-            <a href={"/Tutorial 3.pdf"} download>
+          <div className="mt-8 w-fit">
+            <a
+              href={"/Tutorial 3.pdf"}
+              download
+              className="h-fit cursor-pointer rounded-md  bg-white p-2 pl-6 pr-6 transition duration-300 hover:bg-[#3ECDD5] hover:text-white"
+            >
               Download PDF
             </a>
           </div>
