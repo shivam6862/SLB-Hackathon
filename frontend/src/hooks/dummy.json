@@ -1,0 +1,49 @@
+{
+  "data": [
+    {
+      "language": "english",
+      "heading": "Warning Statement: Expect disruption, ensure access to reliable communication methods amid reported cellular network outage",
+      "overview": {
+        "level": "Advisory",
+        "location": "United States",
+        "category": "Telephone outage, Infrastructure outage",
+        "description": "Expect disruption and ensure access to reliable communication methods in the coming hours amid widespread reports of cellular network outages on 22 February. Several major carriers have reportedly been impacted, with  over 50,000 individuals self-reporting issues with service nationwide. Disruption to internet services has also  been reported by some impacted individuals. The authorities in some affected areas have reported that the  outage has impacted individuals contacting the emergency services, including by calling 911. They have urged  individuals with medical or life-threatening emergencies to utilize alternate methods of contact such as social  media. Monitor developments in the coming hours"
+      },
+      "about": [
+        "Expect disruption to cellular and internet services in the coming hours during the ongoing outage. Ensure access to other reliable methods of communication until it is resolved.",
+        "Maintain a list of emergency contacts, both electronic and on paper."
+      ],
+      "contact_numbers": ["12345678", "906065"]
+    },
+    {
+      "language": "spanish",
+      "heading": "Declaración de advertencia: espere interrupciones, garantice el acceso a métodos de comunicación confiables en medio de una interrupción de la red celular informada",
+      "overview": {
+        "level": "Consultivo",
+        "location": "Estados Unidos",
+        "category": "Corte telefónico, Corte de infraestructura",
+        "description": "Espere interrupciones y garantice el acceso a métodos de comunicación confiables en las próximas horas en medio de una situación generalizada. informes de cortes de la red celular el 22 de febrero. Según los informes, varias compañías importantes se han visto afectadas, Más de 50.000 personas informan por sí mismas problemas con el servicio en todo el país. La interrupción de los servicios de Internet también ha algunas personas afectadas han informado de ello. Las autoridades de algunas zonas afectadas han informado que el El apagón ha afectado a las personas que se comunican con los servicios de emergencia, incluso llamando al 911. Han instado personas con emergencias médicas o potencialmente mortales a utilizar métodos alternativos de contacto, como las redes sociales. medios de comunicación. Seguimiento de la evolución en las próximas horas"
+      },
+      "about": [
+        "Espere interrupciones en los servicios celulares e Internet en las próximas horas durante el actual corte. Garantizar el acceso a otros métodos confiables de comunicación hasta que se resuelva.",
+        "Mantenga una lista de contactos de emergencia, tanto electrónica como en papel."
+      ],
+      "contact_numbers": ["12345678", "906065"]
+    },
+    {
+      "language": "French",
+      "heading": "Déclaration d'avertissement : attendez-vous à des perturbations, assurez l'accès à des méthodes de communication fiables en cas de panne de réseau cellulaire signalée",
+      "overview": {
+        "level": "Consultatif",
+        "location": "États-Unis",
+        "category": "Panne téléphonique, Panne infrastructure",
+        "description": "Attendez-vous à des perturbations et garantissez l’accès à des méthodes de communication fiables dans les heures à venir, au milieu de nombreuses informations faisant état de pannes de réseau cellulaire le 22 février. Plusieurs grands transporteurs auraient été touchés, avec plus de 50 000 personnes signalant elles-mêmes des problèmes de service dans tout le pays. Des perturbations des services Internet ont également été signalées par certaines personnes concernées. Les autorités de certaines zones touchées ont signalé que la panne a eu un impact sur les personnes contactant les services d'urgence, notamment en appelant le 911. Elles ont exhorté les personnes confrontées à des urgences médicales ou mettant leur vie en danger à utiliser d'autres méthodes de contact telles que les réseaux sociaux. Surveiller les évolutions dans les prochaines heures"
+      },
+      "about": [
+        "Attendez-vous à des perturbations des services cellulaires et Internet dans les heures à venir pendant la pandémie en cours. panne. Garantissez l’accès à d’autres méthodes de communication fiables jusqu’à ce que le problème soit résolu.",
+        "Tenir à jour une liste de contacts d’urgence, à la fois électronique et papier."
+      ],
+      "contact_numbers": ["12345678", "906065"]
+    }
+  ]
+}
