@@ -122,4 +122,4 @@ outage. Ensure access to other reliable methods of communication until it is res
  Maintain a list of emergency contacts, both electronic and on paper.
 
 '''
-# produce_translations(text)
+produce_translations(text)
