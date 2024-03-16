@@ -31,7 +31,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col p-24">
       <form className="relative mb-10 flex">
         <CustomInputField
-          placeholder="Enter Chat Name"
+          placeholder="Enter your message here..."
           type="text"
           value={prompt}
           id="chat-name"
