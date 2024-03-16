@@ -38,7 +38,10 @@ def first_translate_notice(notice: str):
                 final_dict["heading"] = translated_key + \
                     " @@ " + translated_value
             else:
-                final_dict["about"].append(translated_key +
+                print("print about", translated_value)
+                # concate all new line to single string
+                translated_value = translated_value.replace('\n', ' ')
+                final_dict["about"].append(translated_key.strip() +
                                            " @@ " + translated_value
                                            )
     return final_dict
@@ -49,6 +52,7 @@ def first_translate_notice(notice: str):
 def translate_v2(structured_notice: dict, target_lang: str, base_lang: str = 'English') -> str:
     print('Inside translate_v2')
     final_dict = {}
+    final_dict['about'] = []
     for key in structured_notice.keys():
 
         translated_key = language_translator(key, base_lang, target_lang)
@@ -70,7 +74,13 @@ def translate_v2(structured_notice: dict, target_lang: str, base_lang: str = 'En
         else:
             translated_value = language_translator(
                 structured_notice[key], base_lang, target_lang)
-            final_dict[key] = translated_key + " @@ " + translated_value
+            if "heading" not in final_dict.keys():
+                final_dict["heading"] = translated_key + \
+                    " @@ " + translated_value
+            else:
+                translated_value = translated_value.replace('\n', ' ')
+                final_dict["about"].append(translated_key.strip() +
+                                           " @@ " + translated_value)
 
     return final_dict
 
@@ -95,6 +105,7 @@ def produce_translations(notice: str) -> dict:
         answer = translate_v2(structured_notice, lang)
         answer["language"] = lang
         translations.append(answer)
+        print('\n\nanswer : ', answer)
         save_to_json(translations[-1], lang)
 
     return translations
@@ -122,4 +133,4 @@ outage. Ensure access to other reliable methods of communication until it is res
  Maintain a list of emergency contacts, both electronic and on paper.
 
 '''
-# produce_translations(text)
+produce_translations(text)
