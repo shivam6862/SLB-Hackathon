@@ -78,6 +78,7 @@ def translate_v2(structured_notice: dict, target_lang: str, base_lang: str = 'En
                 final_dict["heading"] = translated_key + \
                     " @@ " + translated_value
             else:
+                print("print about", translated_value)
                 translated_value = translated_value.replace('\n', ' ')
                 final_dict["about"].append(translated_key.strip() +
                                            " @@ " + translated_value)
@@ -101,7 +102,7 @@ def produce_translations(notice: str) -> dict:
     structured_notice["language"] = "English"
     translations.append(structured_notice)
     save_to_json(structured_notice, 'English')
-    for lang in ['French']:
+    for lang in ['French', 'hindi', 'german']:
         answer = translate_v2(structured_notice, lang)
         answer["language"] = lang
         translations.append(answer)
@@ -133,4 +134,4 @@ outage. Ensure access to other reliable methods of communication until it is res
  Maintain a list of emergency contacts, both electronic and on paper.
 
 '''
-produce_translations(text)
+# produce_translations(text)
