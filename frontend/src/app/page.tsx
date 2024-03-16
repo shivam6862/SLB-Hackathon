@@ -70,8 +70,9 @@ export default function Home() {
           />
           <div className="mt-8 w-fit">
             <a
-              href={"/Tutorial 3.pdf"}
+              href={"http://localhost:8080/test.pdf"}
               download
+              target="_blank"
               className="h-fit cursor-pointer rounded-md  bg-white p-2 pl-6 pr-6 transition duration-300 hover:bg-[#3ECDD5] hover:text-white"
             >
               Download PDF
