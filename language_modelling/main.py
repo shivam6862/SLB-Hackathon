@@ -6,13 +6,14 @@ import asyncio
 def first_translate_notice(notice:str):
     headings_with_indices, lang = find_heading_indices(notice)
     chunks :dict[str, str] = create_chunks(headings_with_indices, notice, lang)
+    # print('\n\nchunks : ' , chunks)
     # first of all translating text to english
     final_dict = {}
 
     for key in chunks.keys():
         
         translated_key = language_translator(key, lang, 'English')
-        if key.strip().lower() == 'overview':
+        if  'overview' in key.strip().lower() :
             special_dict = enhanced_extraction(chunks[key])
             sub_dict = {}
             for sub_key in special_dict.keys():
@@ -38,11 +39,12 @@ def translate_v2(structured_notice :dict, target_lang:str, base_lang:str = 'Engl
     print('Inside translate_v2')
     final_dict = {}
     for key in structured_notice.keys():
+
         translated_key = language_translator(key, base_lang, target_lang)
         if key.strip().lower() == 'emergency contact numbers':
             final_dict[translated_key] = structured_notice[key]
 
-        elif key.strip().lower() == 'overview':
+        elif 'overview' in key.strip().lower() :
             sub_dict = {}
             for sub_key in structured_notice[key].keys():
                 translated_sub_key = language_translator(sub_key, base_lang, target_lang)
@@ -57,15 +59,24 @@ def translate_v2(structured_notice :dict, target_lang:str, base_lang:str = 'Engl
 
     return final_dict
 
+import json, os
+def save_to_json(notice:dict, lang:str):
+    dir = 'language_modelling/translations'
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+    with open(f'{dir}/{lang}.json', 'w') as outfile:
+        json.dump(notice, outfile, indent=4)
 
 def produce_translations(notice:str)->dict:
     print('Inside produce_translations')
-    structured_notice = first_translate_notice(notice)
-    print('structured_notice : ' , structured_notice)
+    structured_notice = first_translate_notice(notice.strip())
+    print('\n\nstructured_notice : ' , structured_notice)
     translations = {}
     translations['English'] = structured_notice
-    for lang in ['French' , 'Hindi' ,'Tamil']:
+    save_to_json(structured_notice, 'English')
+    for lang in ['French' , 'Hindi' ,'German']:
         translations[lang] =  translate_v2(structured_notice, lang)
+        save_to_json(translations[lang], lang)
     
     return translations
 

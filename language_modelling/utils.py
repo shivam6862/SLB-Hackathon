@@ -1,6 +1,6 @@
-import transformers
-import torch
-from transformers import AutoTokenizer, AutoModelForCausalLM
+# import transformers
+# import torch
+# from transformers import AutoTokenizer, AutoModelForCausalLM
 
 
 class LLM:
@@ -80,11 +80,15 @@ import google.generativeai as genai
 import os
 genai.configure(api_key=os.environ['GOOGLE_API_KEY'])
           
-llm = genai.GenerativeModel('gemini-pro')
+llm =  genai.GenerativeModel('gemini-pro')
 
 def generate_response(text):
-    response = llm.generate_content(text)
-    print(response.text)
+    try:
+        response = llm.generate_content(text)
+        # print(response.text)
+        return response.text
+    except Exception as e:
+        return " "
 
 
 # # Craft a short input sequence to avoid memory issues
