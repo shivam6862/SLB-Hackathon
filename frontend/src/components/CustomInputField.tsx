@@ -35,7 +35,7 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
             type={type}
             value={value}
             id={id}
-            onChange={(e) => handleChanges(e)}
+            onChange={handleChanges}
             onBlur={onBlur}
             style={{
               borderColor: error ? "var(--light-warn-color)" : "",
@@ -46,7 +46,7 @@ const CustomInputField: React.FC<CustomInputFieldProps> = ({
             placeholder=" "
             value={value}
             id={id}
-            onChange={(e) => handleChanges(e)}
+            onChange={handleChanges}
             onBlur={onBlur}
             style={{
               borderColor: error ? "var(--light-warn-color)" : "",

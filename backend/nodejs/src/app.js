@@ -1,11 +1,13 @@
 const express = require("express");
 const routes = require("./routes");
+const cors = require("cors");
 const dotenv = require("dotenv");
 dotenv.config();
 const fileUpload = require("express-fileupload");
 
 const app = express();
 
+app.use(cors());
 app.use(express.static(__dirname + "/uploads/"));
 app.use(fileUpload());
 app.use(express.json());
@@ -15,11 +17,11 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", process.env.FRONTEND_URL || "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "OPTIONS, GET, POST, PUT, PATCH, DELETE"
+    "OPTIONS, GET, POST, PUT, PATCH, DELETE",
   );
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Content-Type, Authorization,AuthToken"
+    "Content-Type, Authorization,AuthToken",
   );
   next();
 });

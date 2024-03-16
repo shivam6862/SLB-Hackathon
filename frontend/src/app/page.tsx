@@ -3,6 +3,7 @@ import CustomInputField from "@/components/CustomInputField";
 import { IoSend } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import ResponseItem from "@/components/ResponseItem";
+import useFetchData from "@/hooks/useFetchData";
 
 export type resData = {
   language: string;
@@ -17,43 +18,15 @@ export type resData = {
   contact_numbers: string[];
 };
 export default function Home() {
-  const [prompt, setPrompt] = useState("");
   const [fill, setFill] = useState("#000");
-  const [response, setResponse] = useState<resData[]>([]);
-  const [pdfBase64, setPdfBase64] = useState("");
+  const { prompt, data, handleSendPrompt, handlePromptChange, pdfBase64 } =
+    useFetchData();
+
   useEffect(() => {
     if (prompt.length > 0) setFill("#3ECDD5");
     else setFill("#000");
   }, [prompt]);
 
-  const handleSendPrompt = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!prompt) return;
-    const res = await fetch("/api/create-chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ chatName: prompt }),
-    });
-    const data = await res.json();
-    if (!data) return;
-    setResponse(data);
-    setPrompt("");
-
-    try {
-      const response = await fetch("/Tutorial 3.pdf");
-      const pdfBlob = await response.blob();
-      const reader = new FileReader();
-      reader.onload = () => {
-        const base64Data = reader.result?.toString().split(",")[1];
-        setPdfBase64(base64Data);
-      };
-      reader.readAsDataURL(pdfBlob);
-    } catch (error) {
-      console.error("Error fetching PDF:", error);
-    }
-  };
   return (
     <main className="flex min-h-screen flex-col p-24">
       <form className="relative mb-10 flex">
@@ -62,7 +35,7 @@ export default function Home() {
           type="text"
           value={prompt}
           id="chat-name"
-          handleChanges={(e) => setPrompt(e.target.value)}
+          handleChanges={handlePromptChange}
           isInput={false}
         />
         <button
@@ -72,7 +45,8 @@ export default function Home() {
           <IoSend className="transition duration-300" size={30} fill={fill} />
         </button>
       </form>
-      {response && response.map((item) => <ResponseItem data={item} />)}
+      {data &&
+        data.map((item, index) => <ResponseItem key={index} data={item} />)}
       {pdfBase64 && (
         <>
           <iframe
