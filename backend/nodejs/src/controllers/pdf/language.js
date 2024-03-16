@@ -1,10 +1,14 @@
 module.exports = language = (item, pdfDoc, index) => {
   const language = item.language.replace(/\b\w/g, (l) => l.toUpperCase());
   const heading = item.heading;
-  const level = item.overview.level;
-  const location = item.overview.location;
-  const category = item.overview.category;
-  const description = item.overview.description;
+
+  const keys = Object.keys(item);
+  var overviewKey = keys.find((key) => key.startsWith("overview"));
+
+  const level = item[overviewKey].level;
+  const location = item[overviewKey].location;
+  const category = item[overviewKey].category;
+  const description = item[overviewKey].description;
   const about = item.about;
   const contact_numbers = item.contact_numbers;
 
@@ -25,7 +29,7 @@ module.exports = language = (item, pdfDoc, index) => {
   pdfDoc.page.margins.left += 10;
   pdfDoc.fontSize(TEXT_FONT).moveDown(0.5);
 
-  // heading
+  heading;
   if (heading && heading != "") {
     pdfDoc
       .font("Helvetica", 800)
@@ -35,7 +39,7 @@ module.exports = language = (item, pdfDoc, index) => {
   }
 
   // overview
-  if (item.overview) {
+  if (overviewKey) {
     pdfDoc
       .font("Helvetica", 600)
       .fontSize(HEADING_FONT)
@@ -84,6 +88,7 @@ module.exports = language = (item, pdfDoc, index) => {
 
   // about
   if (about && about.length > 0) {
+    console.log("about", about);
     pdfDoc
       .font("Helvetica", 600)
       .fontSize(HEADING_FONT)
@@ -98,7 +103,11 @@ module.exports = language = (item, pdfDoc, index) => {
   }
 
   // contact numbers
-  if (contact_numbers && contact_numbers.length > 0) {
+  if (
+    contact_numbers != undefined &&
+    contact_numbers &&
+    contact_numbers.length > 0
+  ) {
     pdfDoc
       .font("Helvetica", 600)
       .fontSize(HEADING_FONT)
