@@ -1,6 +1,7 @@
 node_modules
 package-lock.json
 env
+my_env
 __pycache__
 backend/python/slbbackend/db.sqlite3
 .env

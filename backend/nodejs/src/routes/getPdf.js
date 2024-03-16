@@ -2,7 +2,7 @@ const getPdf = require("../controllers/getPdf.js");
 
 module.exports = getResumeRoutes = {
   path: "/getPdf/:pdfid",
-  method: "get",
+  method: "post",
   handler: async (req, res) => {
     try {
       const { pdfid } = req.params;
